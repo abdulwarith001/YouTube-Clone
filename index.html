@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css">
+  <title>Example using tailwind css</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+
+  <section class=" flex flex-col md:hidden">
+    <div class="fixed top-0 bottom-0 left-0 right-0 bg-white z-40 flex items-center justify-center" id="preloader">
+      <img src="image/youtube-go.jpg" alt="" class="w-20">
+    </div>
+    <div class="flex justify-between shadow-md py-1">
+      <div class="w-10 flex flex-row items-center">
+        <img src="image/youtube-go.jpg" alt="">
+        <p class="font-bold font-roboto text-2xl">Go</p>
+      </div>
+
+      <div class="flex items-center justify-between mx-3 w-24">
+        <i
+          class="fa-solid fa-magnifying-glass p-1.5 rounded-full text-veryLightBlack hover:bg-lightGrey cursor-pointer"></i>
+        <p class="w-6 h-6 bg-green-700 text-white flex items-center justify-center rounded-full text-xs">A</p>
+      </div>
+    </div>
+
+    <div class="flex divide-x fixed bottom-0 right-0 left-0 bg-white" id="iconsWrapper">
+
+      <div
+        class="flex flex-col items-center justify-center w-1/2 cursor-pointer active:bg-superLightRed py-1 rounded-full transition-all"
+        id="homeTab">
+        <i class="fa-solid fa-house text-sm text-center text-lightRed" id="icon"></i>
+        <p class="text-xs">Home</p>
+      </div>
+
+      <div class="flex flex-col items-center w-1/2 cursor-pointer py-1 rounded-full active:bg-superLightRed"
+        id="downloadTab">
+        <i class="fa-solid fa-folder text-sm text-center text-veryLightBlack"></i>
+        <p class="text-xs">Downloads</p>
+      </div>
+    </div>
+
+    <div class="flex justify-between bg-veryLightRed items-center" id="channelsHeader">
+
+      <div class="py-1 flex mx-3 justify-between">
+        <img src="image/channels.png" alt="" width="40px">
+        <p class="flex text-veryLightBlack text-xs text-center items-center">Your channels</p>
+      </div>
+
+      <d class="flex justify-between px-3 items-center relative">
+        <i class="fa-solid fa-tv mx-1 text-lightBlue"></i>
+        <div class="w-3.5 h-3.5 bg-lightRed rounded-full border-solid border-white border-2 absolute left-6 bottom-2">
+        </div>
+
+        <p class="text-lightBlue font-bold text-uppercase text-xs">SUBSCRIPTIONS</p>
+    </div>
+
+    <p class="text-veryLightBlack my-4 mx-3 text-xs" id="customMsg">Videos added 2 hours ago</p>
+
+    <div class="flex w-screen flex-col overflow-hidden" id="container"></div>
+    </div>
+
+    <div class="mx-auto bg-veryLightBlack text-white text-center w-36 rounded-full text-sm py-1 mb-12 mt-4 cursor-pointer hover:bg-superLightBlack" id="strollTop">
+      JUMP TO LATEST
+    </div>
+    <div class="fixed top-0 bottom-0 left-0 right-0  flex justify-center items-center bg-veryLightBlack hidden"
+      id="errorBox">
+
+      <div class=" h-24 w-2/5 z-40 bg-black text-xs rounded  flex justify-center items-center text-white text-center shadow-lg shadow-black -shadow-lg">Sorry,this feature is not allowed!</div>
+    </div>
+  </section>
+
+  <template id="homepageTemplate">
+    <div class="flex flex-col border-b-2 border-b-solid border-LightBlack px-2 mb-6">
+      <img src="" alt="" id="requiredData">
+      <div class="flex justify-between items-center mt-1">
+        <img src="" class="w-10 h-10 rounded-full" alt="" id="requiredData">
+
+        <div class="flex flex-col justify-start -ml-15 w-3/4">
+          <p class="text-xs text-black font-bold" id="requiredData"></p>
+          <div class="flex items-center space-x-1 text-xs font-bold text-veryLightBlack">
+            <p class="text-xs" id="requiredData"></p>
+            <div class="w-1 h-1 bg-veryLightBlack rounded"></div>
+            <p class="text-xs" id="requiredData"></p>
+            <div class="w-1 h-1 bg-veryLightBlack rounded"></div>
+            <p class="text-xs" id="requiredData"></p>
+          </div>
+        </div>
+        <i class="fa-solid fa-ellipsis-vertical"></i>
+      </div>
+    </div>
+  </template>
+
+
+  <template id="downloadTemplate">
+    <div class="flex justify-between pb-4 cursor-pointer">
+      <img src="" alt="" width="180px" height="180px" id="required">
+
+      <div class="flex flex-col w-3/4 pl-4">
+        <p class="text-sm font-bold text-verylightBlack" id="required"></p>
+        <p class="text-xs text-veryLightBlack" id="required"></p>
+      </div>
+      <i class="fa-solid fa-ellipsis-vertical px-6 py-2"></i>
+
+    </div>
+  </template>
+
+  <!-- Error message if screen size is more than recommended -->
+  <section class="hidden md:block">
+
+    <div class="flex flex-col justify-center items-center h-screen w-screen">
+      <i class="fa-solid fa-bug text-7xl text-lightRed"></i>
+      <h4 class="text-6xl font-bold text-lightRed mb-6" >Oops,</h4>
+      <p class="font-bold font-roboto text-lightRed text-lg"> 
+        Sorry you can't view this project on bigger screens. Kindly decrease the width of your system</p>
+    </div>
+  </section>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+#iconsWrapper{
+    /* border-top: 1px solid rgba(0, 0, 0, 0.354); */
+    box-shadow: -1px -1px 5px rgba(0, 0, 0, 0.154);
+}
+
+.active *{
+    color: red;
+}
+
+.inactive *{
+    color: rgba(50, 43, 46, 0.737);
+}
+
+.animeLeft{
+animation: toLeft 500ms forwards;
+}
+
+@keyframes toLeft {
+from {
+    transform: translate(20%,0);
+    opacity: 0;
+overflow: hidden;
+
+  }
+
+  to{
+      transform: translate((0,0));
+      opacity: 1;
+  }
+}
+
+.removePreload{
+    animation: removeLoader 1s forwards;
+}
+
+@keyframes removeLoader{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+        display: none;
+        z-index: -10;
+    }
+}
+
+.animeRight{
+    animation: toRight 500ms forwards;
+}
+
+@keyframes toRight {
+    from {
+        transform: translate(-20%,0);
+        opacity: 0;
+      }
+    
+      to{
+          transform: translate((0,0));
+          opacity: 1;
+      }
+    }
+#errorBox{
+    transition: display 2s ease;
+}
+
+.centerDiv{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+::-webkit-scrollbar{
+    width: 0.5em;
+  }
+  
+  ::-webkit-scrollbar-track{
+    background-color: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb{
+    background-color: transparent;
+  }
